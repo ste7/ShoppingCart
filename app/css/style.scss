@@ -1,0 +1,314 @@
+//http://callmenick.com/post/create-a-pure-css-diagonal-menu
+$header-color: rgba(72, 163, 245, 1);
+$primary-color-darker: rgba(60, 135, 205, 1);
+$hover-btn: #2daf3e;
+
+@mixin border{
+  border: 1px solid black;
+}
+
+@mixin box-shadow($color){
+  -webkit-box-shadow: 0px 0px 3px 0px $color;
+  -moz-box-shadow: 0px 0px 3px 0px $color;
+  box-shadow: 0px 0px 3px 0px $color;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* HEADER */
+
+header{
+  height: 30px;
+  width: 100%;
+  background-color: $header-color;
+  margin-bottom: 40px;
+  .header-center{
+    width: 1000px;position: relative;
+    margin: 0 auto;
+    border-right: 1px solid white;
+    >a{
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+      padding: 1px 5px;
+      &:hover{
+        background-color: $primary-color-darker;
+      }
+    }
+    ul, li{
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      float: right;
+      text-align: center;
+    }
+    ul li{
+      display: inline-block;
+      text-align: center;
+      a{
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        background-color: transparent;
+        padding: 1px 2px;
+        text-align: center;
+        &:hover{
+          background-color: $primary-color-darker;
+        }
+        i{
+          padding: 5px 8px;
+        }
+      }
+      &:first-child>a{
+        border-left: 1px solid white;
+        text-align: center;
+      }
+    }
+  }
+}
+.active{
+  background-color: $primary-color-darker;
+}
+
+
+
+/* shopping cart */
+.cart-drop{
+  display: none;
+  -webkit-box-shadow: 0px 4px 5px 0px rgba rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 5px 0px rgba rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+  position: absolute;
+  right: 0;
+  hr{
+    background-color: lightgray;
+    padding: 0;
+    margin: 0;
+  }
+  tr, td{
+    background-color: white;
+    font-size: 12px;
+  }
+  tr td:nth-child(1){
+    width: 60px;
+    height: 20px;
+    font-weight: bold;
+    top: 10px;
+    >img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  tr td:nth-child(2){
+    width: 150px;
+    height: 20px;
+    font-weight: bold;
+    color: black;
+
+    overflow:hidden !important;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+
+    word-break:break-all;
+    line-height: 16px;     /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+
+  }
+  tr td:nth-child(3){
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    a:hover{
+      background-color: white;
+    }
+    >button{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      &:hover>.delete-icon{
+        color: $hover-btn;
+      }
+    }
+    .delete-icon{
+      font-size: 16px;
+      color: #48a3f5;
+    }
+
+  }
+  .fourth{
+    text-align: left;
+    word-spacing: 5px;
+  }
+  .total{
+    background-color: floralwhite;
+    text-align: right;
+    >span:last-child{
+      padding: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+.crt:hover  .cart-drop{
+  display: block;
+}
+.cart-drop:hover{
+  display: block !important;
+}
+/* shopping cart */
+
+/*HEADER*/
+
+
+
+
+.wrapper{
+  width: 1000px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+
+
+.content{
+  width: 100%;
+  min-height: 320px;
+  ul, li{
+    margin: 0;
+    padding: 0;display: inline-block;
+  }
+  li{
+    width: 196px;
+    height: 345px;
+    display: inline-block;
+    border:1px solid lightgray;
+    float: left;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 5px;
+    &:nth-child(5n+1){
+      margin-left: 0;
+    }
+    img{
+      height: 190px;
+      width: auto;
+    }
+    img, h6, .plus, .minus, .add{
+      cursor: pointer;
+    }
+    h6, p, .add {
+      margin-right: 5px;
+    }
+    h6, p{
+      margin-left: 5px;
+    }
+    h6{
+      font-weight: bold;
+      font-size: 13px;
+    }
+    p{
+      font-family: Candara;
+      font-size: 12px;
+      line-height: 1;
+      height: 37px;
+      overflow: hidden;
+      color: gray;
+    }
+    h4{
+      font-weight: bold;
+      font-size: 20px;
+      color: black;
+      line-height: 2px;
+      margin-bottom: 20px;
+      //color: rgba(17, 168, 82, 1);
+    }
+    .count-add, .add, .plus, .minus{
+      border: none;
+      float: right;
+    }
+    .count-add{
+      @include box-shadow($header-color);
+
+      width: 40px;
+      border: none;
+      margin-right: 5px;
+      height: 30px;
+      background-color: white;
+      text-align: center;
+    }
+    .plus, .minus{
+      margin-right: 5px;
+      width: 16px;
+      background-color: rgba(72, 163, 245, 1);
+      height: 30px;
+      &:hover{
+        background-color: rgba(65, 147, 222, 1);
+      }
+      i{
+        font-size: 10px;
+        color: white;
+      }
+      &:hover{
+        background-color: rgba(62, 126, 245, 1);
+      }
+    }
+    .add{
+      background-color: $primary-color-darker;
+      width: 70px;
+      height: 30px;
+      i{
+        color: white;
+        font-size: 22px;
+      }
+      &:hover{
+        background-color: $hover-btn;
+        @include box-shadow(rgba(0,0,0,0.75));
+      }
+    }
+  }
+}
+
+
+//**************
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+//**************
+
+
+
+
+
+// REGISTER/LOGIN FORM
+.register_form{
+  margin: 0 auto;
+  width: 800px;
+  .form-control{
+    width: 370px;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  span{
+    display: inline-block;
+    margin-left: 10px;
+    color: red;
+    font-size: 12px;
+  }
+}
+
+.login_form{
+  @extend .register_form;
+
+}
+// REGISTER/LOGIN FORM
