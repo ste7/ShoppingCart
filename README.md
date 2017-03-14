@@ -1,8 +1,6 @@
 ShoppingCart
 ============
 Shopping cart with login and registration system. It allows you to:
-* Login
-* Register
 * Add items without login or register
 * Delete items
 * Summary of items
